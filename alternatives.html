@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Alternatives | Plastic Free Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family:Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        :root {--primary: #2D5016; --background: #FEFDF8; --foreground: #1a1a1a; --custom4: #e8e5d8;}
+        body {font-family: 'Work Sans', sans-serif; background-color: var(--background); color: var(--foreground);}
+        header {position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(254, 253, 248, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--custom4);}
+        .header-container {max-width: 1920px; margin: 0 auto; padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 80px;}
+        .logo {font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; text-decoration: none; color: var(--foreground); text-transform: uppercase;}
+        .logo span {color: var(--primary);}
+        nav {display: flex; gap: 2rem;}
+        nav a {font-family: 'Archivo Black', sans-serif; font-size: 0.875rem; text-transform: uppercase; text-decoration: none; color: var(--foreground); transition: color 0.3s;}
+        nav a:hover, nav a.active {color: var(--primary);}
+        .hero {padding: 8rem 3rem 5rem; text-align: center;}
+        .hero h1 {font-family: 'Archivo Black', sans-serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 1.5rem;}
+        .alternatives-grid {max-width: 1920px; margin: 0 auto; padding: 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;}
+        .alt-card {border: 1px solid var(--custom4); overflow: hidden; transition: border-color 0.3s;}
+        .alt-card:hover {border-color: var(--primary);}
+        .alt-img {aspect-ratio: 1; overflow: hidden; border-bottom: 1px solid var(--custom4);}
+        .alt-img img {width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: filter 0.5s;}
+        .alt-card:hover .alt-img img {filter: grayscale(0%);}
+        .alt-content {padding: 1.5rem;}
+        .alt-content h2 {font-family: 'Archivo Black', sans-serif; font-size: 1.25rem; text-transform: uppercase; margin-bottom: 1rem;}
+        .alt-badge {display: inline-block; font-size: 0.75rem; padding: 0.25rem 0.75rem; border: 1px solid var(--primary); color: var(--primary); border-radius: 9999px; margin-bottom: 1rem;}
+        .alt-benefits {margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--custom4);}
+        .alt-benefits h3 {font-family: 'Archivo Black', sans-serif; font-size: 0.75rem; color: var(--primary); text-transform: uppercase; margin-bottom: 0.5rem;}
+        footer {background: var(--background); border-top: 1px solid var(--custom4); padding: 3rem;}
+        .footer-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1920px; margin: 0 auto;}
+        @media (max-width: 968px) {.alternatives-grid {grid-template-columns: 1fr;} nav {display: none;}}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="home.html" class="logo">PLASTIC<span>FREE</span></a>
+            <nav>
+                <a href="home.html">HOME</a>
+                <a href="pollution-facts.html">POLLUTION FACTS</a>
+                <a href="alternatives.html" class="active">ALTERNATIVES</a>
+                <a href="tips.html">TIPS</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>SUSTAINABLE <span style="color: var(--primary);">ALTERNATIVES</span></h1>
+        <p style="font-size: 1.125rem; color: #999; font-style: italic;">Eco-friendly solutions to replace single-use plastics in your daily life</p>
+    </section>
+
+    <div class="alternatives-grid">
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_ce41b87cc77d4f41b5de579622620185~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_ce41b87cc77d4f41b5de579622620185~mv2.png" alt="Bamboo Toothbrush"></div>
+            <div class="alt-content">
+                <h2>Bamboo Toothbrush</h2>
+                <span class="alt-badge">Replaces: Plastic Toothbrush</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Made from sustainably sourced bamboo, these toothbrushes are biodegradable and a great eco-friendly alternative.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Biodegradable handle, natural material, reduces plastic waste, comfortable grip.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_29eff02bf79242d091c38112adcf38bb~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_29eff02bf79242d091c38112adcf38bb~mv2.png" alt="Reusable Water Bottle"></div>
+            <div class="alt-content">
+                <h2>Reusable Water Bottle</h2>
+                <span class="alt-badge">Replaces: Single-Use Plastic Water Bottle</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">A durable and stylish water bottle made from stainless steel or glass, designed for repeated use.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Reduces plastic bottle waste, keeps drinks cold/hot, durable, cost-effective long term.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_8c3682c5f61944d197be7a777c5a05dc~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_8c3682c5f61944d197be7a777c5a05dc~mv2.png" alt="Reusable Shopping Bag"></div>
+            <div class="alt-content">
+                <h2>Reusable Shopping Bag</h2>
+                <span class="alt-badge">Replaces: Single-Use Plastic Shopping Bag</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Sturdy and spacious bags made from natural fibers like cotton or jute, or recycled materials.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Reduces plastic bag pollution, strong and durable, washable, fashionable.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_18f83a8181344b48b1d5b7209605caf1~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_18f83a8181344b48b1d5b7209605caf1~mv2.png" alt="Stainless Steel Straw"></div>
+            <div class="alt-content">
+                <h2>Stainless Steel Straw</h2>
+                <span class="alt-badge">Replaces: Single-Use Plastic Straw</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">A sleek and hygienic alternative to plastic straws. Easy to clean and carry.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Reusable, durable, easy to clean, prevents ocean plastic, non-toxic.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_1241b3df6bf249de9591ea9a67ea6fc5~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_1241b3df6bf249de9591ea9a67ea6fc5~mv2.png" alt="Beeswax Food Wraps"></div>
+            <div class="alt-content">
+                <h2>Beeswax Food Wraps</h2>
+                <span class="alt-badge">Replaces: Plastic Cling Film</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Natural, reusable, and compostable food wraps made from cotton infused with beeswax.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Reusable, breathable, compostable, natural antibacterial properties.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_2811db457adc4b7f8ed39219e92ec603~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_2811db457adc4b7f8ed39219e92ec603~mv2.png" alt="Solid Shampoo Bar"></div>
+            <div class="alt-content">
+                <h2>Solid Shampoo Bar</h2>
+                <span class="alt-badge">Replaces: Plastic Shampoo Bottle</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Concentrated shampoo in a solid bar form, eliminating the need for plastic packaging.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Zero plastic packaging, travel-friendly, long-lasting, natural ingredients.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_3f5b3b9fd02e4a49b0edadaadc04857e~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_3f5b3b9fd02e4a49b0edadaadc04857e~mv2.png" alt="Reusable Coffee Cup"></div>
+            <div class="alt-content">
+                <h2>Reusable Coffee Cup</h2>
+                <span class="alt-badge">Replaces: Disposable Coffee Cup</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Enjoy your daily coffee without the guilt of single-use waste.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Reduces landfill waste, keeps drinks warm, stylish designs.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_e00d652475a84d5bb15467ca8d199aa4~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_e00d652475a84d5bb15467ca8d199aa4~mv2.png" alt="Silicone Food Storage Bags"></div>
+            <div class="alt-content">
+                <h2>Silicone Food Storage Bags</h2>
+                <span class="alt-badge">Replaces: Single-Use Plastic Sandwich Bag</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Durable, flexible, and leak-proof bags made from food-grade silicone.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Reusable, freezer/microwave safe, durable, leak-proof.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_bf1e42cb6df24fee988522e0cf3db160~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_bf1e42cb6df24fee988522e0cf3db160~mv2.png" alt="Bamboo Cutlery Set"></div>
+            <div class="alt-content">
+                <h2>Bamboo Cutlery Set</h2>
+                <span class="alt-badge">Replaces: Single-Use Plastic Cutlery</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">A lightweight and portable set of fork, spoon, and knife made from bamboo.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Biodegradable, lightweight, reusable, natural material.</p></div>
+            </div>
+        </article>
+
+        <article class="alt-card">
+            <div class="alt-img"><img src="https://static.wixstatic.com/media/b5dd58_a04862c881ae46548697b20460e04ab3~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_a04862c881ae46548697b20460e04ab3~mv2.png" alt="Compostable Dog Poop Bags"></div>
+            <div class="alt-content">
+                <h2>Compostable Dog Poop Bags</h2>
+                <span class="alt-badge">Replaces: Plastic Dog Poop Bag</span>
+                <p style="font-size: 0.875rem; color: rgba(26,26,26,0.8); margin-bottom: 1rem;">Made from plant-based materials, these bags break down naturally.</p>
+                <div class="alt-benefits"><h3>Key Benefits</h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Biodegradable, compostable, strong and leak-proof.</p></div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div><h3 style="font-family: 'Archivo Black', sans-serif; text-transform: uppercase;">PLASTIC<span style="color: var(--primary);">FREE</span></h3><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">A student-led initiative dedicated to raising awareness about single-use plastics.</p></div>
+            <div><h4 style="font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 1rem; margin-bottom: 1rem;">EXPLORE</h4><ul style="list-style: none;"><li><a href="pollution-facts.html" style="font-size: 0.875rem; color: rgba(26,26,26,0.8); text-decoration: none;">Pollution Facts</a></li><li><a href="alternatives.html" style="font-size: 0.875rem; color: rgba(26,26,26,0.8); text-decoration: none;">Sustainable Alternatives</a></li><li><a href="tips.html" style="font-size: 0.875rem; color: rgba(26,26,26,0.8); text-decoration: none;">Practical Tips</a></li></ul></div>
+            <div><h4 style="font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 1rem; margin-bottom: 1rem;">CONNECT</h4><p style="font-size: 0.875rem; color: rgba(26,26,26,0.8);">Join our movement on social media</p></div>
+        </div>
+    </footer>
+</body>
+</html>

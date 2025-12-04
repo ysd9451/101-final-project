@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Facts | Plastic Free Life</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5016;
+            --background: #FEFDF8;
+            --foreground: #1a1a1a;
+            --custom4: #e8e5d8;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(254, 253, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--custom4);
+        }
+
+        .header-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--foreground);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--foreground);
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 3rem 5rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+        }
+
+        .hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #999;
+            max-width: 48rem;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* Facts Grid */
+        .facts-section {
+            padding: 5rem 3rem;
+        }
+
+        .facts-container {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .fact-card {
+            border: 1px solid var(--custom4);
+            padding: 2rem;
+            transition: border-color 0.3s;
+        }
+
+        .fact-card:hover {
+            border-color: var(--primary);
+        }
+
+        .fact-image {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border: 1px solid var(--custom4);
+            margin-bottom: 1.5rem;
+        }
+
+        .fact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+
+        .fact-card:hover .fact-image img {
+            filter: grayscale(0%);
+        }
+
+        .fact-header {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .fact-number {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .fact-number-value {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-number-unit {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .fact-content {
+            flex: 1;
+        }
+
+        .fact-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(45, 80, 22, 0.2);
+            color: var(--primary);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-description {
+            font-size: 1rem;
+            color: rgba(26, 26, 26, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .fact-source {
+            font-size: 0.875rem;
+            color: rgba(26, 26, 26, 0.6);
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 3rem;
+            background: rgba(232, 229, 216, 0.1);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: rgba(26, 26, 26, 0.8);
+            max-width: 48rem;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border-radius: 9999px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #234012;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(26, 26, 26, 0.3);
+            color: rgba(26, 26, 26, 0.6);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background);
+            border-top: 1px solid var(--custom4);
+        }
+
+        .footer-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-grid h3,
+        .footer-grid h4 {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-grid p,
+        .footer-grid a {
+            font-size: 0.875rem;
+            color: rgba(26, 26, 26, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-grid a:hover {
+            color: var(--primary);
+        }
+
+        .footer-grid ul {
+            list-style: none;
+        }
+
+        .footer-grid li {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 1px solid rgba(26, 26, 26, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(26, 26, 26, 0.6);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--custom4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: rgba(26, 26, 26, 0.6);
+        }
+
+        @media (max-width: 968px) {
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="home.html" class="logo">PLASTIC<span>FREE</span></a>
+            <nav>
+                <a href="home.html">HOME</a>
+                <a href="pollution-facts.html" class="active">POLLUTION FACTS</a>
+                <a href="alternatives.html">ALTERNATIVES</a>
+                <a href="tips.html">TIPS</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-icon">⚠️</div>
+        <h1>PLASTIC POLLUTION <span style="color: var(--primary);">FACTS</span></h1>
+        <p>Understanding the scale and impact of plastic pollution on our planet and health</p>
+    </section>
+
+    <!-- Facts Grid -->
+    <section class="facts-section">
+        <div class="facts-container">
+            <div class="facts-grid">
+                <!-- Fact 1 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_a5302a3bf9194953b14e3566b808f512~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_a5302a3bf9194953b14e3566b808f512~mv2.png" alt="Plastic in Oceans">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">11000000</div>
+                            <div class="fact-number-unit">tons</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Plastic in Our Oceans</h2>
+                            <span class="fact-badge">Environmental</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Every year, millions of tons of plastic waste enter our oceans, harming marine life and ecosystems. This plastic breaks down into microplastics, which are then ingested by marine animals and can enter the human food chain.</p>
+                    <p class="fact-source">Source: Pew Charitable Trusts & SYSTEMIQ, 2020</p>
+                </article>
+
+                <!-- Fact 2 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_e53af83a33194a16a0abb48df8b1a5ca~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_e53af83a33194a16a0abb48df8b1a5ca~mv2.png" alt="Microplastics">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">5</div>
+                            <div class="fact-number-unit">grams</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Microplastics in Humans</h2>
+                            <span class="fact-badge">Health</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Studies have found microplastic particles in human blood, lungs, and even placentas, indicating widespread exposure. The long-term health effects are still being researched, but it raises concerns about chronic inflammation and toxicity.</p>
+                    <p class="fact-source">Source: WWF, 2019 (average weekly intake)</p>
+                </article>
+
+                <!-- Fact 3 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_6a00aa15a9474c15b5a7df51098d978a~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_6a00aa15a9474c15b5a7df51098d978a~mv2.png" alt="Plastic Decomposition">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">450</div>
+                            <div class="fact-number-unit">years</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Plastic Decomposition Time</h2>
+                            <span class="fact-badge">Environmental</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Unlike organic materials, most plastics do not biodegrade. A single plastic bottle can take hundreds of years to break down into smaller pieces, persisting in the environment for generations.</p>
+                    <p class="fact-source">Source: NOAA Marine Debris Program</p>
+                </article>
+
+                <!-- Fact 4 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_2535e8bba67c4486b9d2d1f9c34a6870~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_2535e8bba67c4486b9d2d1f9c34a6870~mv2.png" alt="Recycling Rate">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">9</div>
+                            <div class="fact-number-unit">percent</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Global Plastic Recycling Rate</h2>
+                            <span class="fact-badge">Environmental</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Globally, only a small fraction of plastic waste is actually recycled. The vast majority ends up in landfills, incinerators, or pollutes natural environments, highlighting the inefficiency of current waste management systems.</p>
+                    <p class="fact-source">Source: National Geographic, 2018</p>
+                </article>
+
+                <!-- Fact 5 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_f347d323b2ca49f3bc12ee6d78da4252~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_f347d323b2ca49f3bc12ee6d78da4252~mv2.png" alt="Marine Species">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">700</div>
+                            <div class="fact-number-unit">species</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Marine Species Affected</h2>
+                            <span class="fact-badge">Environmental</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Plastic pollution impacts a wide range of marine species, from tiny plankton to large whales. Animals can become entangled in plastic debris or ingest it, leading to injury, starvation, and death.</p>
+                    <p class="fact-source">Source: UN Environment Programme</p>
+                </article>
+
+                <!-- Fact 6 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_97fba7be9108485ea2156884b7fb8f6a~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_97fba7be9108485ea2156884b7fb8f6a~mv2.png" alt="Plastic Production">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">380</div>
+                            <div class="fact-number-unit">million tons</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Rising Plastic Production</h2>
+                            <span class="fact-badge">Environmental</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Plastic production has surged dramatically over the past decades and continues to rise. This increasing production outpaces efforts to manage waste, exacerbating the global pollution crisis.</p>
+                    <p class="fact-source">Source: Our World in Data, 2023</p>
+                </article>
+
+                <!-- Fact 7 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_32d04dacf0e54c3fb44c3fe16c6780dd~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_32d04dacf0e54c3fb44c3fe16c6780dd~mv2.png" alt="Chemicals">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">10000</div>
+                            <div class="fact-number-unit">chemicals</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Chemicals in Plastics</h2>
+                            <span class="fact-badge">Health</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Many plastics contain harmful chemicals like phthalates and BPA, which can leach into food and water. These chemicals are endocrine disruptors and have been linked to various health issues.</p>
+                    <p class="fact-source">Source: UNEP, 2023 (chemicals in plastics)</p>
+                </article>
+
+                <!-- Fact 8 -->
+                <article class="fact-card">
+                    <div class="fact-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_6ca81de3b03749f7aa45f3eb61a29bb1~mv2.png/v1/fill/w_640,h_359,al_c,q_85,enc_auto/b5dd58_6ca81de3b03749f7aa45f3eb61a29bb1~mv2.png" alt="Single-Use">
+                    </div>
+                    <div class="fact-header">
+                        <div class="fact-number">
+                            <div class="fact-number-value">40</div>
+                            <div class="fact-number-unit">percent</div>
+                        </div>
+                        <div class="fact-content">
+                            <h2 class="fact-title">Single-Use Plastic Dominance</h2>
+                            <span class="fact-badge">Environmental</span>
+                        </div>
+                    </div>
+                    <p class="fact-description">Single-use plastics, such as packaging, bottles, and bags, constitute a significant portion of plastic waste. Their short lifespan and high volume contribute disproportionately to pollution.</p>
+                    <p class="fact-source">Source: Plastic Waste Makers Index, 2021</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>READY TO MAKE A <span style="color: var(--primary);">CHANGE?</span></h2>
+        <p>Discover sustainable alternatives and practical tips to reduce your plastic footprint</p>
+        <div class="cta-buttons">
+            <a href="alternatives.html" class="btn btn-primary">View Alternatives</a>
+            <a href="tips.html" class="btn btn-secondary">Get Tips</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3>PLASTIC<span style="color: var(--primary);">FREE</span></h3>
+                    <p>A student-led initiative dedicated to raising awareness about single-use plastics and promoting sustainable living.</p>
+                </div>
+                <div>
+                    <h4>EXPLORE</h4>
+                    <ul>
+                        <li><a href="pollution-facts.html">Pollution Facts</a></li>
+                        <li><a href="alternatives.html">Sustainable Alternatives</a></li>
+                        <li><a href="tips.html">Practical Tips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>CONNECT</h4>
+                    <p>Join our movement on social media</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" class="social-link">📷</a>
+                        <a href="https://facebook.com" target="_blank" class="social-link">f</a>
+                        <a href="https://twitter.com" target="_blank" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 PlasticFree Initiative. All rights reserved.</p>
+                <p>Together for a sustainable future</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

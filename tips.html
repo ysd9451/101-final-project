@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Tips | Plastic Free Life</title>
+    <meta name="description" content="Simple, actionable steps to reduce plastic consumption in your everyday life">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5016;
+            --primary-light: #4A7C2B;
+            --secondary: #8B4513;
+            --background: #FEFDF8;
+            --foreground: #1A1A1A;
+            --border: #E0DDD1;
+            --accent: #D4A574;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(254, 253, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--foreground);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            color: var(--foreground);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--foreground);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .lightbulb-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            stroke: var(--primary);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        h1 span {
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--foreground);
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-style: italic;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid var(--border);
+            background: transparent;
+            color: var(--foreground);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+
+        .tip-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+            border: 2px solid var(--border);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            background: white;
+            overflow: hidden;
+        }
+
+        .tip-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tip-image {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-right: 2px solid var(--border);
+        }
+
+        .tip-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+
+        .tip-card:hover .tip-image img {
+            filter: grayscale(0%);
+        }
+
+        .tip-content {
+            padding: 2.5rem;
+        }
+
+        .tip-header {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .check-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .check-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+        }
+
+        .tip-title-group {
+            flex: 1;
+        }
+
+        .tip-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .tip-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+        }
+
+        .tag-category {
+            background: rgba(45, 80, 22, 0.15);
+            color: var(--primary);
+        }
+
+        .tag-difficulty {
+            border: 1px solid var(--border);
+            color: var(--foreground);
+            opacity: 0.7;
+        }
+
+        .tip-description {
+            font-size: 1.15rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--foreground);
+            opacity: 0.9;
+        }
+
+        .tip-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-section:last-child {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            margin-bottom: 0;
+        }
+
+        .tip-section h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .tip-section p {
+            line-height: 1.8;
+            color: var(--foreground);
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(45, 80, 22, 0.05);
+            padding: 5rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section h2 span {
+            color: var(--primary);
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background);
+            border-top: 2px solid var(--border);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h3 span {
+            color: var(--primary);
+        }
+
+        .footer-section h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--foreground);
+            opacity: 0.7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .social-links a:hover svg {
+            stroke: white;
+        }
+
+        .social-links svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--foreground);
+            transition: stroke 0.3s;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .tip-card {
+                grid-template-columns: 1fr;
+            }
+
+            .tip-image {
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .tip-content {
+                padding: 2rem;
+            }
+
+            .tip-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .filter-btn {
+                font-size: 0.65rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="home.html" class="logo">PLASTIC<span>FREE</span></a>
+            <nav>
+                <a href="home.html">HOME</a>
+                <a href="pollution-facts.html">POLLUTION FACTS</a>
+                <a href="alternatives.html">ALTERNATIVES</a>
+                <a href="tips.html" class="active">TIPS</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <svg class="lightbulb-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+            <path d="M9 18h6"></path>
+            <path d="M10 22h4"></path>
+        </svg>
+        <h1>PRACTICAL <span>TIPS</span></h1>
+        <p class="subtitle">Simple, actionable steps to reduce plastic consumption in your everyday life</p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">ALL</button>
+            <button class="filter-btn" data-filter="On-the-Go">ON-THE-GO</button>
+            <button class="filter-btn" data-filter="Campus Life">CAMPUS LIFE</button>
+            <button class="filter-btn" data-filter="Dining Out">DINING OUT</button>
+            <button class="filter-btn" data-filter="Shopping">SHOPPING</button>
+            <button class="filter-btn" data-filter="Food & Kitchen">FOOD & KITCHEN</button>
+            <button class="filter-btn" data-filter="Personal Care">PERSONAL CARE</button>
+            <button class="filter-btn" data-filter="Home & Cleaning">HOME & CLEANING</button>
+            <button class="filter-btn" data-filter="General">GENERAL</button>
+            <button class="filter-btn" data-filter="Community Action">COMMUNITY ACTION</button>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <!-- Tip 1 -->
+        <article class="tip-card" data-category="On-the-Go" data-difficulty="Easy">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_117c01e5649349648f2b7b87c197b2c3~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_117c01e5649349648f2b7b87c197b2c3~mv2.png" alt="Carry a Reusable Water Bottle">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Carry a Reusable Water Bottle</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">On-the-Go</span>
+                            <span class="tag tag-difficulty">Easy</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Reduce plastic waste by always having a reusable water bottle with you.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Invest in a durable, high-quality reusable water bottle made from stainless steel or glass. Refill it at water fountains, cafes, or at home before you leave. Many campuses and public spaces now have water refill stations.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Saves money on bottled water, significantly reduces plastic bottle waste, and keeps you hydrated throughout the day.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 2 -->
+        <article class="tip-card" data-category="Campus Life" data-difficulty="Easy">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_ee20e328899d4a6282f40668c4c6caed~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_ee20e328899d4a6282f40668c4c6caed~mv2.png" alt="Opt for a Reusable Coffee Cup">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Opt for a Reusable Coffee Cup</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Campus Life</span>
+                            <span class="tag tag-difficulty">Easy</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Enjoy your daily coffee without contributing to single-use cup waste.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Purchase a reusable coffee cup or travel mug. Many coffee shops offer a discount for bringing your own cup. Remember to wash it regularly and keep it handy in your bag or backpack.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Minimizes landfill waste from disposable coffee cups, often saves you money, and supports sustainable practices.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 3 -->
+        <article class="tip-card" data-category="Dining Out" data-difficulty="Easy">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_a900bb8ffbec4cf0b3a42a0e7393240f~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_a900bb8ffbec4cf0b3a42a0e7393240f~mv2.png" alt="Say No to Plastic Straws">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Say No to Plastic Straws</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Dining Out</span>
+                            <span class="tag tag-difficulty">Easy</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Decline plastic straws when ordering drinks at restaurants or cafes.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>When ordering a drink, politely tell the server, 'No straw, please.' If you prefer using a straw, consider carrying your own reusable straw made from stainless steel, bamboo, or glass.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Prevents unnecessary plastic pollution, especially harmful to marine life, and encourages businesses to reduce plastic use.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 4 -->
+        <article class="tip-card" data-category="Shopping" data-difficulty="Easy">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_0ca86711c70a461988cfe22ea5f368fa~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_0ca86711c70a461988cfe22ea5f368fa~mv2.png" alt="Bring Your Own Shopping Bags">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Bring Your Own Shopping Bags</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Shopping</span>
+                            <span class="tag tag-difficulty">Easy</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Avoid plastic bags by bringing reusable ones for all your shopping needs.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Keep several reusable shopping bags in your car, backpack, or by your front door. Make it a habit to grab them before heading to the grocery store, mall, or any other shop.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Eliminates single-use plastic bag waste, which often ends up in oceans and landfills, and can save you money on bag fees.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 5 -->
+        <article class="tip-card" data-category="Food & Kitchen" data-difficulty="Medium">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_de508da002ef4e16b59878296f447df0~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_de508da002ef4e16b59878296f447df0~mv2.png" alt="Pack Lunch in Reusable Containers">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Pack Lunch in Reusable Containers</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Food & Kitchen</span>
+                            <span class="tag tag-difficulty">Medium</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Prepare your meals at home and store them in reusable containers instead of disposable packaging.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Invest in a set of durable, food-grade reusable containers. Pack your lunch, snacks, and even leftovers in them. This is especially useful for students bringing food to campus.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Reduces plastic wrap, sandwich bags, and disposable food container waste, saves money on takeout, and promotes healthier eating.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 6 -->
+        <article class="tip-card" data-category="Dining Out" data-difficulty="Medium">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_c86ee916ec97473ea732df1992712804~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_c86ee916ec97473ea732df1992712804~mv2.png" alt="Avoid Plastic Cutlery">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Avoid Plastic Cutlery</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Dining Out</span>
+                            <span class="tag tag-difficulty">Medium</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Refuse plastic forks, spoons, and knives when getting takeout or at events.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>If you know you'll be eating on the go, carry a small reusable cutlery set (fork, spoon, knife) in a pouch. Many stores sell portable bamboo or stainless steel sets. Politely decline plastic cutlery when offered.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Significantly reduces plastic waste from disposable utensils, which are rarely recycled and often end up polluting the environment.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 7 -->
+        <article class="tip-card" data-category="Personal Care" data-difficulty="Medium">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_b8cdd54f2998469b858382b8b2a79952~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_b8cdd54f2998469b858382b8b2a79952~mv2.png" alt="Choose Bar Soaps and Shampoos">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Choose Bar Soaps and Shampoos</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Personal Care</span>
+                            <span class="tag tag-difficulty">Medium</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Switch from liquid products in plastic bottles to solid bar alternatives.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Explore solid shampoo, conditioner, and soap bars. They often come in minimal, recyclable, or compostable packaging. Many brands offer high-quality, effective bar products for various hair and skin types.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Eliminates plastic bottle waste from your bathroom, often lasts longer than liquid counterparts, and reduces shipping weight and carbon footprint.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 8 -->
+        <article class="tip-card" data-category="Shopping" data-difficulty="Hard">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_c08a966a7240416480079fe86fb8a986~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_c08a966a7240416480079fe86fb8a986~mv2.png" alt="Buy Groceries in Bulk">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Buy Groceries in Bulk</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Shopping</span>
+                            <span class="tag tag-difficulty">Hard</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Reduce packaging waste by purchasing dry goods from bulk bins.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Bring your own reusable cloth bags or containers to stores that offer bulk sections for items like grains, nuts, seeds, pasta, and spices. Weigh your containers before filling them to deduct the tare weight at checkout.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Minimizes plastic packaging waste, often saves money per unit, and allows you to buy only the amount you need.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 9 -->
+        <article class="tip-card" data-category="Home & Cleaning" data-difficulty="Hard">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_ac81ca22625c4a519c25516952804002~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_ac81ca22625c4a519c25516952804002~mv2.png" alt="Make Your Own Cleaning Products">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Make Your Own Cleaning Products</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Home & Cleaning</span>
+                            <span class="tag tag-difficulty">Hard</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Create eco-friendly cleaning solutions using common household ingredients.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Instead of buying multiple plastic bottles of cleaning products, use ingredients like vinegar, baking soda, lemon juice, and essential oils. There are many simple recipes online for all-purpose cleaners, glass cleaners, and more.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Reduces plastic bottle waste, avoids harsh chemicals, saves money, and creates a healthier home environment.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 10 -->
+        <article class="tip-card" data-category="General" data-difficulty="Easy">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_f42f80392b9546f38ae1ad75b81ce0d5~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_f42f80392b9546f38ae1ad75b81ce0d5~mv2.png" alt="Refuse Unnecessary Freebies">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Refuse Unnecessary Freebies</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">General</span>
+                            <span class="tag tag-difficulty">Easy</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Decline promotional items or samples that are made of plastic and you don't truly need.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>At events, conferences, or even in stores, many freebies are plastic trinkets that quickly become waste. Politely decline items like plastic pens, keychains, or small toys if you won't use them.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Reduces the demand for cheap plastic production, prevents clutter, and minimizes future waste.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 11 -->
+        <article class="tip-card" data-category="Community Action" data-difficulty="Medium">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_e624213444444adc8a55b32e02f0f107~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_e624213444444adc8a55b32e02f0f107~mv2.png" alt="Support Plastic-Free Businesses">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Support Plastic-Free Businesses</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Community Action</span>
+                            <span class="tag tag-difficulty">Medium</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Prioritize shopping at stores and brands committed to reducing plastic packaging.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Research local businesses, online stores, and brands that offer plastic-free alternatives or have strong sustainability policies. Your purchasing power can encourage more businesses to adopt eco-friendly practices.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Drives market demand for sustainable products, supports ethical businesses, and helps build a plastic-free economy.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tip 12 -->
+        <article class="tip-card" data-category="Community Action" data-difficulty="Hard">
+            <div class="tip-image">
+                <img src="https://static.wixstatic.com/media/b5dd58_5d314c4818244241a968230a65931baf~mv2.png/v1/fill/w_640,h_639,al_c,q_90,enc_auto/b5dd58_5d314c4818244241a968230a65931baf~mv2.png" alt="Organize a Campus Cleanup">
+            </div>
+            <div class="tip-content">
+                <div class="tip-header">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                    </div>
+                    <div class="tip-title-group">
+                        <h2 class="tip-title">Organize a Campus Cleanup</h2>
+                        <div class="tip-tags">
+                            <span class="tag tag-category">Community Action</span>
+                            <span class="tag tag-difficulty">Hard</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="tip-description">Take initiative to clean up plastic waste around your campus or local community.</p>
+                <div class="tip-section">
+                    <h3>HOW TO IMPLEMENT</h3>
+                    <p>Gather a group of friends or fellow students, get permission if needed, and organize a cleanup event. Provide gloves and reusable bags for collecting litter. Document your findings to raise awareness.</p>
+                </div>
+                <div class="tip-section">
+                    <h3>BENEFITS</h3>
+                    <p>Directly removes plastic pollution from the environment, raises awareness among peers, and fosters a sense of community responsibility.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>SPREAD THE <span>WORD</span></h2>
+        <p>Join our social media campaign and help raise awareness about plastic pollution</p>
+        <div class="cta-buttons">
+            <a href="/campaign" class="btn btn-primary">JOIN CAMPAIGN</a>
+            <a href="/alternatives" class="btn btn-secondary">VIEW ALTERNATIVES</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PLASTIC<span>FREE</span></h3>
+                <p>A student-led initiative dedicated to raising awareness about single-use plastics and promoting sustainable living.</p>
+            </div>
+            <div class="footer-section">
+                <h4>EXPLORE</h4>
+                <a href="/pollution-facts">Pollution Facts</a>
+                <a href="/alternatives">Sustainable Alternatives</a>
+                <a href="/tips">Practical Tips</a>
+                <a href="/campaign">Our Campaign</a>
+            </div>
+            <div class="footer-section">
+                <h4>CONNECT</h4>
+                <p>Join our movement on social media</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 PlasticFree Initiative. All rights reserved.</p>
+            <p>Together for a sustainable future</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tipCards = document.querySelectorAll('.tip-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                // Filter cards
+                tipCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'grid';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

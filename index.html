@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Plastic Free Life</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5016;
+            --background: #FEFDF8;
+            --foreground: #1a1a1a;
+            --custom4: #e8e5d8;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-heading {
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(254, 253, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--custom4);
+        }
+
+        .header-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--foreground);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--foreground);
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(232, 229, 216, 0.3), var(--background), var(--background));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-style: italic;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 10rem;
+            line-height: 0.85;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            background: linear-gradient(to bottom, white, gray);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 2px white;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        .hero-grid-item h3 {
+            font-family: 'Archivo Black', sans-serif;
+            color: var(--primary);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-grid-item p {
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        /* Marquee */
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            margin: 5rem 0;
+            background: rgba(232, 229, 216, 0.1);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-text {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 6rem;
+            -webkit-text-stroke: 2px white;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.2;
+            margin: 0 2rem;
+            text-transform: uppercase;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Stats Section */
+        .stats-section {
+            width: 100%;
+            padding: 6rem 3rem;
+            background: var(--background);
+        }
+
+        .stats-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 3rem;
+        }
+
+        .stats-header {
+            grid-column: span 4;
+        }
+
+        .stats-header h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 5rem;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-header p {
+            font-size: 1.125rem;
+            color: #999;
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            grid-column: span 8;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(232, 229, 216, 0.05);
+            transition: all 0.5s;
+            position: relative;
+        }
+
+        .stat-card:hover {
+            background: rgba(232, 229, 216, 0.1);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 5rem;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .stat-card:hover .stat-number {
+            color: var(--primary);
+        }
+
+        .stat-unit {
+            font-size: 2rem;
+            vertical-align: top;
+        }
+
+        .stat-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .stat-description {
+            font-size: 0.875rem;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        /* Alternatives Section */
+        .alternatives-section {
+            width: 100%;
+            padding: 8rem 3rem;
+            background: rgba(232, 229, 216, 0.05);
+        }
+
+        .alternatives-container {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .alternatives-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .alternatives-header h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 8rem;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .alternatives-header p {
+            color: #999;
+            max-width: 28rem;
+            text-align: right;
+        }
+
+        .alternative-item {
+            display: flex;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 8rem;
+        }
+
+        .alternative-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .alternative-image {
+            width: 50%;
+            position: relative;
+        }
+
+        .alternative-image img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.7s;
+        }
+
+        .alternative-item:hover .alternative-image img {
+            filter: grayscale(0%);
+        }
+
+        .alternative-content {
+            width: 50%;
+        }
+
+        .alternative-badge {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.75rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .alternative-content h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .alternative-content p {
+            font-size: 1.125rem;
+            color: #999;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .alternative-benefits {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        .alternative-benefits h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .alternative-benefits p {
+            font-size: 0.875rem;
+            color: #888;
+        }
+
+        .alternative-link {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .alternative-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: black;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            width: 100%;
+            padding: 8rem 3rem;
+            background: var(--background);
+        }
+
+        .tips-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tips-header {
+            margin-bottom: 6rem;
+        }
+
+        .tips-icon {
+            width: 4rem;
+            height: 4rem;
+            padding: 0.75rem;
+            border-radius: 50%;
+            background: rgba(45, 80, 22, 0.1);
+            color: var(--primary);
+            margin: 0 auto 1.5rem;
+        }
+
+        .tips-header h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .tips-header p {
+            font-size: 1.25rem;
+            color: #999;
+        }
+
+        .tips-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(45, 80, 22, 0.5), transparent);
+        }
+
+        .tip-item {
+            display: flex;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .tip-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1rem;
+            height: 1rem;
+            background: var(--background);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .tip-content {
+            width: 50%;
+            text-align: left;
+            padding-left: 3rem;
+        }
+
+        .tip-item:nth-child(odd) .tip-content {
+            text-align: right;
+            padding-left: 0;
+            padding-right: 3rem;
+        }
+
+        .tip-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            top: -2rem;
+        }
+
+        .tip-content h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tip-content p {
+            color: #999;
+        }
+
+        .tip-image {
+            width: 50%;
+            opacity: 0.2;
+            transition: opacity 0.5s;
+        }
+
+        .tip-item:hover .tip-image {
+            opacity: 1;
+        }
+
+        .tip-image img {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            filter: grayscale(100%);
+            border-radius: 0.5rem;
+        }
+
+        .tips-cta {
+            margin-top: 6rem;
+        }
+
+        .btn {
+            padding: 1rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: white;
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: black;
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+        }
+
+        .cta-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .cta-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, black, rgba(0,0,0,0.5), transparent);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 3rem;
+            text-align: center;
+        }
+
+        .cta-icon {
+            width: 6rem;
+            height: 6rem;
+            color: var(--primary);
+            margin: 0 auto 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .cta-content h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 9rem;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 2rem;
+            mix-blend-mode: screen;
+        }
+
+        .cta-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+            margin-bottom: 3rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-primary {
+            padding: 1.25rem 3rem;
+            background: var(--primary);
+            color: black;
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 1.25rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: white;
+        }
+
+        .btn-secondary {
+            padding: 1.25rem 3rem;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background);
+            border-top: 1px solid var(--custom4);
+        }
+
+        .footer-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-grid h3,
+        .footer-grid h4 {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-grid h3 {
+            font-size: 1.25rem;
+        }
+
+        .footer-grid h4 {
+            font-size: 1rem;
+        }
+
+        .footer-grid p,
+        .footer-grid a {
+            font-size: 0.875rem;
+            color: rgba(26, 26, 26, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-grid a:hover {
+            color: var(--primary);
+        }
+
+        .footer-grid ul {
+            list-style: none;
+        }
+
+        .footer-grid li {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 1px solid rgba(26, 26, 26, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(26, 26, 26, 0.6);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--custom4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: rgba(26, 26, 26, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 6rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-header,
+            .stats-grid {
+                grid-column: span 1;
+            }
+
+            .alternative-item,
+            .alternative-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .alternative-image,
+            .alternative-content {
+                width: 100%;
+            }
+
+            .tip-item,
+            .tip-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .tip-content,
+            .tip-image {
+                width: 100%;
+            }
+
+            .tip-item:nth-child(odd) .tip-content {
+                text-align: left;
+                padding-right: 0;
+                padding-left: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 5rem;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="home.html" class="logo">PLASTIC<span>FREE</span></a>
+            <nav>
+                <a href="home.html" class="active">HOME</a>
+                <a href="pollution-facts.html">POLLUTION FACTS</a>
+                <a href="alternatives.html">ALTERNATIVES</a>
+                <a href="tips.html">TIPS</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">The Future is Now</p>
+            <h1 class="hero-title">
+                PLASTIC<br>
+                <span class="text-stroke">FREE</span><br>
+                MOVEMENT
+            </h1>
+
+            <div class="hero-grid">
+                <div class="hero-grid-item">
+                    <h3>THE MISSION</h3>
+                    <p>Educating the next generation on the environmental impact of single-use plastics.</p>
+                </div>
+                <div class="hero-grid-item">
+                    <!-- Middle section left empty (was JOIN button) -->
+                </div>
+                <div class="hero-grid-item">
+                    <h3>THE ACTION</h3>
+                    <p>Discover sustainable alternatives and practical tips for a cleaner future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <span class="marquee-text">Reduce • Reuse • Recycle • Rethink •</span>
+            <span class="marquee-text">Reduce • Reuse • Recycle • Rethink •</span>
+            <span class="marquee-text">Reduce • Reuse • Recycle • Rethink •</span>
+            <span class="marquee-text">Reduce • Reuse • Recycle • Rethink •</span>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-header">
+                <h2>THE <span style="color: var(--primary); text-shadow: 0 0 10px rgba(255,0,127,0.6);">REALITY</span></h2>
+                <p>The numbers don't lie. Plastic pollution is reshaping our ecosystem at an alarming rate.</p>
+                <a href="pollution-facts.html" style="color: var(--primary); text-decoration: none; font-family: 'Archivo Black', sans-serif; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em;">View Full Report →</a>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">11000000<span class="stat-unit">tons</span></div>
+                    <h3 class="stat-title">Plastic in Our Oceans</h3>
+                    <p class="stat-description">Every year, millions of tons of plastic waste enter our oceans, harming marine life and ecosystems.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5<span class="stat-unit">grams</span></div>
+                    <h3 class="stat-title">Microplastics in Humans</h3>
+                    <p class="stat-description">Studies have found microplastic particles in human blood, lungs, and even placentas.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">450<span class="stat-unit">years</span></div>
+                    <h3 class="stat-title">Plastic Decomposition Time</h3>
+                    <p class="stat-description">A single plastic bottle can take hundreds of years to break down.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9<span class="stat-unit">percent</span></div>
+                    <h3 class="stat-title">Global Plastic Recycling Rate</h3>
+                    <p class="stat-description">Only a small fraction of plastic waste is actually recycled globally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternatives Section -->
+    <section class="alternatives-section">
+        <div class="alternatives-container">
+            <div class="alternatives-header">
+                <h2>SMART <span class="text-stroke">SWAPS</span></h2>
+                <p>Elevate your lifestyle with eco-conscious choices that don't compromise on quality or style.</p>
+            </div>
+
+            <div class="alternative-item">
+                <div class="alternative-image">
+                    <img src="https://static.wixstatic.com/media/b5dd58_ce41b87cc77d4f41b5de579622620185~mv2.png/v1/fill/w_427,h_640,al_c,q_85,enc_auto/b5dd58_ce41b87cc77d4f41b5de579622620185~mv2.png" alt="Bamboo Toothbrush">
+                </div>
+                <div class="alternative-content">
+                    <span class="alternative-badge">Replaces: Plastic Toothbrush</span>
+                    <h3>Bamboo Toothbrush</h3>
+                    <p>Made from sustainably sourced bamboo, these toothbrushes are biodegradable and a great eco-friendly alternative to conventional plastic toothbrushes.</p>
+                    <div class="alternative-benefits">
+                        <div>
+                            <h4>Benefits</h4>
+                            <p>Biodegradable handle, natural material, reduces plastic waste, comfortable grip.</p>
+                        </div>
+                        <a href="alternatives.html" class="alternative-link">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alternative-item">
+                <div class="alternative-image">
+                    <img src="https://static.wixstatic.com/media/b5dd58_29eff02bf79242d091c38112adcf38bb~mv2.png/v1/fill/w_427,h_640,al_c,q_85,enc_auto/b5dd58_29eff02bf79242d091c38112adcf38bb~mv2.png" alt="Reusable Water Bottle">
+                </div>
+                <div class="alternative-content">
+                    <span class="alternative-badge">Replaces: Single-Use Plastic Water Bottle</span>
+                    <h3>Reusable Water Bottle</h3>
+                    <p>A durable and stylish water bottle made from stainless steel or glass, designed for repeated use. Staying hydrated without contributing to plastic pollution has never been easier.</p>
+                    <div class="alternative-benefits">
+                        <div>
+                            <h4>Benefits</h4>
+                            <p>Reduces plastic bottle waste, keeps drinks cold/hot, durable, cost-effective long term.</p>
+                        </div>
+                        <a href="alternatives.html" class="alternative-link">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alternative-item">
+                <div class="alternative-image">
+                    <img src="https://static.wixstatic.com/media/b5dd58_8c3682c5f61944d197be7a777c5a05dc~mv2.png/v1/fill/w_427,h_640,al_c,q_85,enc_auto/b5dd58_8c3682c5f61944d197be7a777c5a05dc~mv2.png" alt="Reusable Shopping Bag">
+                </div>
+                <div class="alternative-content">
+                    <span class="alternative-badge">Replaces: Single-Use Plastic Shopping Bag</span>
+                    <h3>Reusable Shopping Bag</h3>
+                    <p>Sturdy and spacious bags made from natural fibers like cotton or jute, or recycled materials. Perfect for groceries, shopping, or carrying books.</p>
+                    <div class="alternative-benefits">
+                        <div>
+                            <h4>Benefits</h4>
+                            <p>Reduces plastic bag pollution, strong and durable, washable, fashionable.</p>
+                        </div>
+                        <a href="alternatives.html" class="alternative-link">→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="tips-container">
+            <div class="tips-header">
+                <div class="tips-icon">⚡</div>
+                <h2>THE <span style="color: var(--primary); text-shadow: 0 0 10px rgba(255,0,127,0.6);">PLAYBOOK</span></h2>
+                <p>Actionable steps for daily impact</p>
+            </div>
+
+            <div class="tips-timeline">
+                <div class="timeline-line"></div>
+
+                <div class="tip-item">
+                    <div class="timeline-dot"></div>
+                    <div class="tip-content">
+                        <span class="tip-number">01</span>
+                        <h3>Carry a Reusable Water Bottle</h3>
+                        <p>Reduce plastic waste by always having a reusable water bottle with you.</p>
+                    </div>
+                    <div class="tip-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_117c01e5649349648f2b7b87c197b2c3~mv2.png/v1/fill/w_640,h_640,al_c,q_90,enc_auto/b5dd58_117c01e5649349648f2b7b87c197b2c3~mv2.png" alt="Tip 1">
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="timeline-dot"></div>
+                    <div class="tip-content">
+                        <span class="tip-number">02</span>
+                        <h3>Opt for a Reusable Coffee Cup</h3>
+                        <p>Enjoy your daily coffee without contributing to single-use cup waste.</p>
+                    </div>
+                    <div class="tip-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_ee20e328899d4a6282f40668c4c6caed~mv2.png/v1/fill/w_640,h_640,al_c,q_90,enc_auto/b5dd58_ee20e328899d4a6282f40668c4c6caed~mv2.png" alt="Tip 2">
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="timeline-dot"></div>
+                    <div class="tip-content">
+                        <span class="tip-number">03</span>
+                        <h3>Say No to Plastic Straws</h3>
+                        <p>Decline plastic straws when ordering drinks at restaurants or cafes.</p>
+                    </div>
+                    <div class="tip-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_a900bb8ffbec4cf0b3a42a0e7393240f~mv2.png/v1/fill/w_640,h_640,al_c,q_90,enc_auto/b5dd58_a900bb8ffbec4cf0b3a42a0e7393240f~mv2.png" alt="Tip 3">
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="timeline-dot"></div>
+                    <div class="tip-content">
+                        <span class="tip-number">04</span>
+                        <h3>Bring Your Own Shopping Bags</h3>
+                        <p>Avoid plastic bags by bringing reusable ones for all your shopping needs.</p>
+                    </div>
+                    <div class="tip-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_0ca86711c70a461988cfe22ea5f368fa~mv2.png/v1/fill/w_640,h_640,al_c,q_90,enc_auto/b5dd58_0ca86711c70a461988cfe22ea5f368fa~mv2.png" alt="Tip 4">
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="timeline-dot"></div>
+                    <div class="tip-content">
+                        <span class="tip-number">05</span>
+                        <h3>Pack Lunch in Reusable Containers</h3>
+                        <p>Prepare your meals at home and store them in reusable containers instead of disposable packaging.</p>
+                    </div>
+                    <div class="tip-image">
+                        <img src="https://static.wixstatic.com/media/b5dd58_de508da002ef4e16b59878296f447df0~mv2.png/v1/fill/w_640,h_640,al_c,q_90,enc_auto/b5dd58_de508da002ef4e16b59878296f447df0~mv2.png" alt="Tip 5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-cta">
+                <a href="tips.html" class="btn">View All Tips</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <img src="https://static.wixstatic.com/media/b5dd58_4a15605e190e481a879acda799e5240b~mv2.png/v1/fill/w_953,h_1024,al_c,q_90,enc_auto/b5dd58_4a15605e190e481a879acda799e5240b~mv2.png" alt="Campaign">
+        </div>
+        <div class="cta-overlay"></div>
+        <div class="cta-content">
+            <div class="cta-icon">👥</div>
+            <h2>JOIN THE <span style="color: var(--primary);">MOVEMENT</span></h2>
+            <p>Be part of the social media revolution. Share your journey, inspire others, and help us turn the tide on plastic pollution.</p>
+            <div class="cta-buttons">
+                <a href="https://instagram.com" target="_blank" class="btn-secondary">Follow Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3>PLASTIC<span style="color: var(--primary);">FREE</span></h3>
+                    <p>A student-led initiative dedicated to raising awareness about single-use plastics and promoting sustainable living.</p>
+                </div>
+                <div>
+                    <h4>EXPLORE</h4>
+                    <ul>
+                        <li><a href="pollution-facts.html">Pollution Facts</a></li>
+                        <li><a href="alternatives.html">Sustainable Alternatives</a></li>
+                        <li><a href="tips.html">Practical Tips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>CONNECT</h4>
+                    <p>Join our movement on social media</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" class="social-link">📷</a>
+                        <a href="https://facebook.com" target="_blank" class="social-link">f</a>
+                        <a href="https://twitter.com" target="_blank" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 PlasticFree Initiative. All rights reserved.</p>
+                <p>Together for a sustainable future</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
